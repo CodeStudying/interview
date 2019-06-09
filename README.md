@@ -1,7 +1,3 @@
-# interview
-java面试知识点整理
-
-
 
 
 ## 目录
@@ -21,7 +17,7 @@ java面试知识点整理
 
 ### jvm
 
-
+* [Java内存区域](docs/java/jvm/Java内存区域.md)
 
 
 
