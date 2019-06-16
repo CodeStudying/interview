@@ -15,8 +15,18 @@ Java虚拟机的多线程是通过线程轮流切换并分配处理器执行时�
 
 如果当前线程正在执行的是Java方法，该PC寄存器记录当前正在执行的Java虚拟机指令的地址；如果当前线程正在执行的方法是Native的，则Java虚拟机PC寄存器的值是undefined。
 
+### 2.2 Java虚拟机栈
+
+Java虚拟机栈(Java Virtual Machine Stacks)的生命周期与线程相同，虚拟机栈的栈元素是栈帧，用于存储局部变量表、操作数栈、动态链接、方法出口等信息。当有一个方法被调用时，代表这个方法的栈帧入栈；当这个方法返回时，其栈帧出栈。因此，虚拟机栈中栈帧的入栈顺序就是方法调用顺序。
+
+Java 虚拟机栈规定了两种异常：
+
+- 如果线程请求的栈深度大于虚拟机所允许的深度，将抛出StackOverflowError异常。
+- 如果虚拟机栈可以动态扩展，如果扩展时无法申请到足够的内存，就会抛出OutOfMemoryError异常。
+
 
 ## 参考
 
 - <https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5>
 - 《深入理解Java虚拟机：JVM高级特性与最佳实践》周志明,机械工业出版社
+- [http://liwenkun.me/2017/03/06/explore-java-vm-stack/](http://liwenkun.me/2017/03/06/explore-java-vm-stack/)
