@@ -12,7 +12,7 @@
 ## JAVA
 
 ### 基础
-* [Java内存区域](docs/java/基础/Java基础.md)
+* [Java基础](docs/java/基础/Java基础.md)
 
 ### 容器
 
