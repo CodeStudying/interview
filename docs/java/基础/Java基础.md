@@ -16,4 +16,21 @@
 * Java每种基本类型所占存储空间的大小是不变的，因此比其他大多数语言具有可移植性。
 * 所有数值类型都有正负号。
 
-每个包装类的对象可以封装一个相应的基本类型的数据，并提供了相应的方法。包装类对象一经创建，其内容不可改变。
+每个包装类的对象可以封装一个相应的基本类型的数据，并提供了相应的方法。包装类对象一经创建，其内容不可改变。基本类型和对应的包装类可以相互转换：
+
+- 由基本类型向对应的包装类转换称为装箱；
+- 包装类向对应的基本类型转换称为拆箱。
+
+## 缓存池
+```java
+Integer n1 = 123;
+Integer n2 = 123;
+Integer n3 = 128;
+Integer n4 = 128;
+Integer n5 = Integer.valueOf(123);
+Integer n6 = Integer.valueOf(123);
+
+System.out.println(n1 == n2); //true
+System.out.println(n3 == n4); //false
+System.out.println(n5 == n6); //true
+```
