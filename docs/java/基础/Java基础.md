@@ -4,17 +4,16 @@
 
 ### 
 
-| 基本类型 |  大小   |      最小值       |                最大值                 | 包装器类型 |
-| :------: | :-----: | :---------------: | :-----------------------------------: | :--------: |
-| boolean  |    -    |         -         |                   -                   |  Boolean   |
-|   char   | 16 bits |     Unicode 0     |       Unicode 2<sup>16</sup>-1        | Character  |
-|   byte   | 8 bits  |       -128        |                 +127                  |    Byte    |
-|  short   | 16 bits |  -2<sup>15</sup>  |           +2<sup>15</sup>-1           |   Short    |
-|   int    | 32 bits |  -2<sup>31</sup>  |           +2<sup>31</sup>-1           |  Integer   |
-|   long   | 64 bits |  -2<sup>63</sup>  |           +2<sup>63</sup>-1           |    Long    |
-|  float   | 32 bits | 2<sup>-149</sup>  | (2-2<sup>-23</sup>)*2<sup>127</sup>   |   Float    |
-|  double  | 64 bits | 2<sup>-1074</sup> | (2-2<sup>-52</sup>)*2<sup>1023</sup>  |   Double   |
-
+| 基本类型 |  大小   |      最小值       |                   最大值                    | 包装器类型 |
+| :------: | :-----: | :---------------: | :-----------------------------------------: | :--------: |
+| boolean  |    -    |         -         |                      -                      |  Boolean   |
+|   char   | 16 bits |     Unicode 0     |          Unicode 2<sup>16</sup>-1           | Character  |
+|   byte   | 8 bits  |       -128        |                    +127                     |    Byte    |
+|  short   | 16 bits |  -2<sup>15</sup>  |              +2<sup>15</sup>-1              |   Short    |
+|   int    | 32 bits |  -2<sup>31</sup>  |              +2<sup>31</sup>-1              |  Integer   |
+|   long   | 64 bits |  -2<sup>63</sup>  |              +2<sup>63</sup>-1              |    Long    |
+|  float   | 32 bits | 2<sup>-149</sup>  | (2-2<sup>-23</sup>)&middot;2<sup>127</sup>  |   Float    |
+|  double  | 64 bits | 2<sup>-1074</sup> | (2-2<sup>-52</sup>)&middot;2<sup>1023</sup> |   Double   |
 
 
 * Java每种基本类型所占存储空间的大小是不变的，因此比其他大多数语言具有可移植性。
