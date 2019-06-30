@@ -25,7 +25,7 @@
 - 包装类向对应的基本类型转换称为拆箱。
 
 ### 缓存池
-当我们使用Integer的时候会存储数据，为避免重复创建对象默认的缓存数据的范围是-128到127，如果超出这个范围则创建一个新的对象。
+当我们使用 Integer 的时候会存储数据，为避免重复创建对象默认的缓存数据的范围是-128到127，如果超出这个范围则创建一个新的对象。
 ```java
 Integer n1 = 123;
 Integer n2 = 123;
@@ -38,3 +38,12 @@ System.out.println(n1 == n2); //true
 System.out.println(n3 == n4); //false
 System.out.println(n5 == n6); //true
 ```
+Java 自动装箱相当于调用 valueOf 方法，其中 valueOf 源码如下：
+```java
+    public static Integer valueOf(int i) {
+        if (i >= IntegerCache.low && i <= IntegerCache.high)
+            return IntegerCache.cache[i + (-IntegerCache.low)];
+        return new Integer(i);
+    }
+```
+可以看到如果这个数值在cache数组的范围内（low和high之间），就返回cache数组的中的数据，否则创建一个Integer。
