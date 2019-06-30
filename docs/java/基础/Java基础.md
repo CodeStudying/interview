@@ -82,7 +82,7 @@ Java 自动装箱相当于调用 valueOf 方法，其中 valueOf 源码如下：
         private IntegerCache() {}
     }
 ```
-默认的范围是-128～127，可以通过-XX:AutoBoxCacheMax=<size>参数去修改最大值，在JVM初始化的时候，这个值被写入sun.misc.VM class系统私有配置文件中并加载。
+默认的范围是-128～127，可以通过-XX:AutoBoxCacheMax=\<size\>参数去修改最大值，在JVM初始化的时候，这个值被写入sun.misc.VM class系统私有配置文件中并加载。
 
 ## 参考
 
