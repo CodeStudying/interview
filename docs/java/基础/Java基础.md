@@ -152,6 +152,37 @@ private方法隐式地指定为final的。如果在子类中定义的方法和�
 - 深拷贝
 
   为了要在clone对象时进行深拷贝，除了调用父类中的 clone() 方法(super.clone())得到新的对象，还要将该类中的引用变量也 clone 出来。
+  
+### 2. equals()&hashCode()
+
+equals() 方法用于判断对象的引用是否相等。
+
+equals() 方法的重载需要满足：
+
+- 自反性
+
+  对任何非空引用x，``` x.equals(x)```结果为ture。
+
+- 对称性
+
+  对任何非空引用x和y，如果```x.equals(y)```为true，那么```y.equals(x)```也必须为true。
+
+- 传递性
+
+  对任何非空引用值x、y和z，如果```x.equals(y)```为true，并且```y.equals(z)```为true，那么```x.equals(z)```也必定为true。
+
+- 一致性
+
+  对任何非空引用值x和y，多次调用``` x.equals(y)``` 始终返回 true 或始终返回 false，前提是对象上 equals 比较中所用的信息没有被修改。
+
+hashCode()方法将对象在内存中的地址作为哈希码返回，返回值类型是整形。该方法通常在向哈希表(如HashSet、HashMap等)中添加对象时，通过调用hashCode()方法计算对象的哈希码。
+
+equals() 方法和hashCode()方法关系：
+
+- 如果两个对象equals，他们的hashcode一定相等。
+- 如果两个对象不equals，他们的hashcode有可能相等。
+- 如果两个对象hashcode相等，他们不一定equals。
+- 如果两个对象hashcode不相等，他们一定不equals。
 
 ## 参考
 
