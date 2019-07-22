@@ -270,8 +270,44 @@ Java中的包主要是为了防止类文件命名冲突以及方便进行代码�
   重载既存在于继承体系中，也存在于同一个类中。
 
   **可以有不同的访问修饰符，可以抛出不同的异常。**
+  
+## 6. **String,** StringBuffer and StringBuilder
 
+- 是否可变
 
+  String不可变，StringBuffer和StringBuilder 可变。
+
+  String 不可变型原因：
+
+  1. String 在底层是用一个 private final 修饰的字符数组 value 来存储字符串的。final 修饰符保证了 value 这个引用变量是不可变的，private 修饰符则保证了 value 是类私有的，不能通过对象实例去访问和更改 value 数组里存放的字符。
+  2. String 类并没有对外暴露可以修改 value[] 数组内容的方法，并且 String 类内部对字符串的操作和改变都是通过新建一个 String 对象去完成的，操作完返回的是新的 String 对象，并没有改变原来对象的 value[] 数组。
+  3. String 类是用 final 修饰的，保证了 String 类是不能通过子类继承去破坏或更改它的不可变性的。
+
+- 是否线程安全
+
+  String不可变，因此是线程安全的；StringBuilder不是线程安全的，StringBuffer 是线程安全的，内部使用 synchronized 保证线程安全。
+
+- String#intern()
+
+  当调用intern方法时，如果常量池已经包含一个equals此String对象的字符串，则返回池中的字符串。
+
+  当调用intern方法时，如果常量池没有一个equals此String对象的字符串，将此String对象添加到池中，并返回此String对象的引用(即intern方法返回指向heap中的此String对象引用)。
+
+  当调用intern方法时，如果堆中不存在，则在池中创建该字符串并返回其引用。
+
+```java
+   //在字符串常量池和堆中都创建"a"
+   String s1 = new String("a");
+   //常量池已经包含"a"的String对象字符串，返回池中的字符串
+   String s2 = "a";
+   System.out.println(s1.intern() == s2); //true
+
+   //堆中没有"aa"的String对象字符串，在池中创建该字符串并返回其引用
+   String s3 = new String("a") + new String("a");
+   String s4 = "aa";
+   System.out.println(s3.intern() == s4); //true
+```
 ## 参考
 
 - Java 编程思想[M]. Eckel B. 机械工业出版社, 2002.
+- [https://segmentfault.com/a/1190000018211009?utm_source=tag-newest](https://segmentfault.com/a/1190000018211009?utm_source=tag-newest)
